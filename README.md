@@ -1,4 +1,4 @@
-# C Helper - Advanced C Development Assistant
+# Lazy C - Advanced C Development Assistant
 
 > **Supercharge your C programming workflow** with intelligent automation, real-time safety analysis, and instant compilation—all directly in VSCode.
 
@@ -7,14 +7,15 @@
 
 ---
 
-## 🎯 Why C Helper?
+## 🎯 Why lazy C?
+![Lazy C icon](icon.png)
 
-Writing C can be tedious and error-prone. C Helper eliminates the busywork and catches common mistakes before they become bugs, letting you focus on building great software.
+Writing C can be tedious and error-prone. lazy C eliminates the busywork and catches common mistakes before they become bugs, letting you focus on building great software.
 
 **Perfect for:**
 - Students learning C programming
 - Professional developers working on system-level code
-- Anyone tired of forgetting semicolons and header files
+- Anyone tired of bugs
 
 ---
 
@@ -23,7 +24,7 @@ Writing C can be tedious and error-prone. C Helper eliminates the busywork and c
 ### 🤖 **Intelligent Auto-Completion**
 
 #### Auto Semicolon Insertion
-Never forget a semicolon again. C Helper intelligently detects when you need one and adds it automatically.
+Never forget a semicolon again. lazy c intelligently detects when you need one and adds it automatically.
 
 ```c
 int x = 5       // Press Enter
@@ -37,7 +38,7 @@ int x = 5;      // ✓ Semicolon added automatically
 - Comments
 
 #### Auto Header Inclusion
-Focus on your logic—C Helper handles the includes. The moment you call a standard library function, the appropriate header is added automatically.
+Focus on your logic—lazy C handles the includes. The moment you call a standard library function, the appropriate header is added automatically.
 
 ```c
 printf("Hello");    // #include <stdio.h> added automatically
@@ -207,7 +208,7 @@ Access via Command Palette (`Ctrl+Shift+P`):
 
 ## ⚙️ Configuration
 
-Customize C Helper to match your workflow:
+Customize Lazy C to match your workflow:
 
 1. Open Settings: `File > Preferences > Settings`
 2. Search for "C Helper"
@@ -306,7 +307,7 @@ int main() {
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/c-helper.git
+git clone https://github.com/mehdi1-T/Lazy-C-vscode-extension.git
 cd c-helper
 
 # Install dependencies
@@ -338,7 +339,7 @@ vsce package
 We welcome contributions! Here's how you can help:
 
 ### Report Bugs
-- Use the [GitHub Issues](https://github.com/your-username/c-helper/issues) page
+- Use the [GitHub Issues](https://github.com/mehdi1-T/Lazy-C-vscode-extension/issues) page
 - Include your VSCode version and OS
 - Provide a minimal code example
 
@@ -432,9 +433,9 @@ A: Yes, all features can be toggled in settings.
 
 ### ⭐ If you find C Helper useful, give it a star on GitHub!
 
-**[Report Bug](https://github.com/your-username/c-helper/issues)** • 
-**[Request Feature](https://github.com/your-username/c-helper/issues)** • 
-**[Documentation](https://github.com/your-username/c-helper/wiki)**
+**[Report Bug](https://github.com/mehdi1-T/Lazy-C-vscode-extension/issues)** • 
+**[Request Feature](https://github.com/mehdi1-T/Lazy-C-vscode-extension/issues)** • 
+**[Documentation](https://github.com/mehdi1-T/Lazy-C-vscode-extensionwiki)**
 
 ---
 
