@@ -1,6 +1,6 @@
 {
-  "name": "c-lazy",
-  "displayName": "C lazy - Advanced C Coding Assistant",
+  "name": "lazy-c",
+  "displayName": "Lazy C - Advanced C Coding Assistant",
   "description": "Auto semicolons, headers, memory management, compilation and more for C programming",
   "version": "1.0.1",
   "publisher": "MehdiTalalha",
@@ -33,24 +33,73 @@
   ],
   "main": "./out/extension.js",
   "contributes": {
+    "viewsContainers": {
+      "panel": [
+        {
+          "id": "lazy-c",
+          "title": "Lazy C",
+          "icon": "icon.png"
+        }
+      ]
+    },
+    "views": {
+      "lazy-c": [
+        {
+          "icon": "icon.png",
+          "id": "c-helper.libraryReference",
+          "name": "C Manual Pages",
+          "type": "webview"
+        }
+      ]
+    },
     "commands": [
       {
         "command": "c-helper.compile",
-        "title": "C Helper: Compile Current File"
+        "title": "Lazy C: Compile Current File"
+      },
+      {
+        "command": "c-helper.openReference",
+        "title": "Lazy C: Open Manual Pages",
+        "category": "Lazy C"
+      },
+      {
+        "command": "c-helper.searchReference",
+        "title": "Lazy C: Search Manual",
+        "category": "Lazy C"
       },
       {
         "command": "c-helper.compileAndRun",
-        "title": "C Helper: Compile and Run"
+        "title": "Lazy C: Compile and Run"
       },
       {
         "command": "c-helper.insertMain",
-        "title": "C Helper: Insert Main Function"
+        "title": "Lazy C: Insert Main Function"
       },
       {
         "command": "c-helper.generateDoc",
-        "title": "C Helper: Generate Function Documentation"
+        "title": "Lazy C: Generate Function Documentation"
       }
     ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "c-helper.compile",
+          "when": "editorLangId == c"
+        },
+        {
+          "command": "c-helper.compileAndRun",
+          "when": "editorLangId == c"
+        },
+        {
+          "command": "c-helper.insertMain",
+          "when": "editorLangId == c"
+        },
+        {
+          "command": "c-helper.generateDoc",
+          "when": "editorLangId == c"
+        }
+      ]
+    },
     "keybindings": [
       {
         "command": "c-helper.compile",
@@ -104,6 +153,7 @@
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
+    "watch-tests": "tsc -watch -p ./ --outDir out",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js"
