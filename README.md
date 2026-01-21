@@ -1,4 +1,4 @@
-# Lazy C - Advanced C Development Assistant
+# Lazy C
 
 > **Supercharge your C programming workflow** with intelligent automation, real-time safety analysis, and instant compilation—all directly in VSCode.
 
