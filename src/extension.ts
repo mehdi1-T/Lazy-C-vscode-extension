@@ -1229,6 +1229,13 @@ function registerDocumentOpenHandler(context: vscode.ExtensionContext) {
                         console.error('Error in setupNewCFileFromDocument:', error);
                     });
                 }, 100);
+            } else if (document.languageId === 'c' && document.getText().trim() !== '') {
+                // Auto-add headers for existing non-empty C files when opened
+                setTimeout(() => {
+                    autoAddRequiredHeaders(document).catch(error => {
+                        console.error('Error in autoAddRequiredHeaders on file open:', error);
+                    });
+                }, 100);
             }
         })
     );
@@ -1276,6 +1283,9 @@ function registerDocumentSaveHandler(context: vscode.ExtensionContext) {
                     runDiagnostics(document);
                     autoGeneratePrototypes(document).catch(error => {
                         console.error('Error in auto-generate prototypes on save:', error);
+                    });
+                    autoAddRequiredHeaders(document).catch(error => {
+                        console.error('Error in auto-add headers on save:', error);
                     });
                 } catch (error) {
                     console.error('Error in document save handler:', error);
