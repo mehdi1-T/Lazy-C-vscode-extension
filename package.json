@@ -1,46 +1,119 @@
 {
-  "name": "lazy-programmer",
-  "displayName": "Lazy programmer",
-  "description": "Speeds up your coding workflow, making typing faster",
-  "version": "0.0.1",
+  "name": "c-lazy",
+  "displayName": "C lazy - Advanced C Coding Assistant",
+  "description": "Auto semicolons, headers, memory management, compilation and more for C programming",
+  "version": "1.0.0",
+  "publisher": "MehdiTalalha",
+  "icon": "icon.png",
   "engines": {
-    "vscode": "^1.108.1"
+    "vscode": "^1.80.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mehdi1-T/Lazy-C-vscode-extension.git"
   },
   "categories": [
-    "Other"
+    "Programming Languages",
+    "Linters",
+    "Snippets"
   ],
-  "activationEvents": [],
-  "main": "./dist/extension.js",
+  "license": "MIT",
+  "keywords": [
+    "c",
+    "c programming",
+    "auto semicolon",
+    "header files",
+    "gcc",
+    "clang",
+    "compilation",
+    "c helper"
+  ],
+  "activationEvents": [
+    "onLanguage:c"
+  ],
+  "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "lazy-programmer.helloWorld",
-        "title": "Hello World"
+        "command": "c-helper.compile",
+        "title": "C Helper: Compile Current File"
+      },
+      {
+        "command": "c-helper.compileAndRun",
+        "title": "C Helper: Compile and Run"
+      },
+      {
+        "command": "c-helper.insertMain",
+        "title": "C Helper: Insert Main Function"
+      },
+      {
+        "command": "c-helper.generateDoc",
+        "title": "C Helper: Generate Function Documentation"
       }
-    ]
+    ],
+    "keybindings": [
+      {
+        "command": "c-helper.compile",
+        "key": "ctrl+shift+b",
+        "when": "editorLangId == c"
+      },
+      {
+        "command": "c-helper.compileAndRun",
+        "key": "ctrl+shift+r",
+        "when": "editorLangId == c"
+      },
+      {
+        "command": "c-helper.insertMain",
+        "key": "ctrl+shift+m",
+        "when": "editorLangId == c"
+      },
+      {
+        "command": "c-helper.generateDoc",
+        "key": "ctrl+shift+d",
+        "when": "editorLangId == c"
+      }
+    ],
+    "configuration": {
+      "title": "C Helper",
+      "properties": {
+        "c-helper.autoSemicolon": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically insert semicolons at end of lines"
+        },
+        "c-helper.autoHeaders": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically include required header files"
+        },
+        "c-helper.warningLevel": {
+          "type": "string",
+          "enum": ["low", "medium", "high"],
+          "default": "medium",
+          "description": "Level of warnings for unsafe code"
+        },
+        "c-helper.compilerPath": {
+          "type": "string",
+          "default": "gcc",
+          "description": "Path to GCC compiler"
+        }
+      }
+    }
   },
   "scripts": {
-    "vscode:prepublish": "npm run package",
-    "compile": "webpack",
-    "watch": "webpack --watch",
-    "package": "webpack --mode production --devtool hidden-source-map",
-    "compile-tests": "tsc -p . --outDir out",
-    "watch-tests": "tsc -p . -w --outDir out",
-    "pretest": "npm run compile-tests && npm run compile && npm run lint",
-    "lint": "eslint src",
-    "test": "vscode-test"
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.108.1",
-    "@types/mocha": "^10.0.10",
-    "@types/node": "22.x",
-    "typescript-eslint": "^8.52.0",
-    "eslint": "^9.39.2",
-    "typescript": "^5.9.3",
-    "ts-loader": "^9.5.4",
-    "webpack": "^5.104.1",
-    "webpack-cli": "^6.0.1",
-    "@vscode/test-cli": "^0.0.12",
-    "@vscode/test-electron": "^2.5.2"
+    "@types/vscode": "^1.80.0",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.45.0",
+    "typescript": "^5.1.6"
   }
 }
