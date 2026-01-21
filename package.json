@@ -2,7 +2,7 @@
   "name": "lazy-c",
   "displayName": "Lazy C - Advanced C Coding Assistant",
   "description": "Auto semicolons, headers, memory management, compilation and more for C programming",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "publisher": "MehdiTalalha",
   "icon": "icon.png",
   "engines": {
