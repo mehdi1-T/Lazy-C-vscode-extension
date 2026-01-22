@@ -35,7 +35,7 @@
 
 ## License
 
-MIT License © 2026 Mehdi Talalha
+MIT License
 
 ## Contact
 
